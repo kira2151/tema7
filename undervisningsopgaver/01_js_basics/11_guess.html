@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>goddag_øvelse</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <p>Gæt et tal mellem 0 og 20</p>
+    <input type="text" id="gæt">
+    <button>Klik og se om du har gættet rigtig. Kig i konsollen</button>
+
+    <script>
+        document.querySelector("button").addEventListener("click", buttonClicked)
+        let tal = Math.round(Math.random() * 20);
+
+        function buttonClicked() {
+            let resultat;
+            let gæt = document.querySelector("#gæt").value;
+
+            if (gæt < 0 || gæt > 20) {
+                resultat = "Er du dum eller hvad??? Tallet skal være mellem 1-20!"
+
+            } else if (gæt == tal) {
+                resultat = `Tillykke du har gættet rigtigt! Tallet er nemlig ${tal}!`
+
+            } else if (gæt < tal) {
+                resultat = `Desværre dit gæt (${gæt}) er for lavt. Prøv igen!`
+
+
+            } else if (gæt > tal) {
+                resultat = `Desværre dit gæt (${gæt}) er for højt. Prøv igen!`
+
+            }
+
+            console.log(resultat);
+
+        }
+
+    </script>
+</body>
+
+</html>
