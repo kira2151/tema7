@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>goddag_øvelse</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <p>Hvor gammel er du</p>
+    <input type="text" id="EgenAlder">
+    <p>Hvor gammel er din date?</p>
+    <input type="text" id="DateAlder">
+    <button>Klik for at se om du din date er for gammel eller for ung. Kig i konsollen</button>
+
+    <script>
+        document.querySelector("button").addEventListener("click", buttonClicked)
+
+        function buttonClicked() {
+            let EgenAlder = document.querySelector("#EgenAlder").value;
+            let DateAlder = document.querySelector("#DateAlder").value;
+            let alderRegel = (EgenAlder / 2) + 7
+            let resultat;
+            let gammel = EgenAlder + alderRegel;
+            let ung = EgenAlder - alderRegel;
+
+            if (EgenAlder < 15 || DateAlder < 15) {
+                resultat = "Begge parter skal være over 15 år."
+
+            } else if (DateAlder > ung && DateAlder < gammel)
+                resultat = "I må gerne gå på date"
+
+            else {
+                resultat = "Desværre, der er for mange år imellem jer"
+            }
+
+            console.log(resultat);
+        }
+
+    </script>
+</body>
+
+</html>
