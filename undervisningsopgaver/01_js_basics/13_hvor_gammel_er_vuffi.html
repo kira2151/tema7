@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>goddag_øvelse</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <p>Hvor gammel er din vovsebasse?</p>
+    <input type="text" id="Alder">
+    <button>Klik for at se hvor gammel din hund er i menneskeår. Kig i konsollen</button>
+
+    <script>
+        document.querySelector("button").addEventListener("click", buttonClicked)
+
+        function buttonClicked() {
+            let Alder = document.querySelector("#Alder").value;
+            let hundeAlder = 16 * Math.log(Alder) + 31
+
+
+
+            console.log("Din hund er " + hundeAlder + " i menneskeår");
+        }
+
+    </script>
+</body>
+
+</html>
