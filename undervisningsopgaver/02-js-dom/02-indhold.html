@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        main {
+            padding-left: 4%;
+            padding-right: 4%;
+        }
+
+        article {
+            border: 1px solid #333;
+            margin: 5px;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-gap: 20px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        header,
+        footer {
+            padding: 10px 0;
+            border: 1px solid #888;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Titel</h1>
+    </header>
+
+    <main>
+
+        <h2>Undertitel</h2>
+        <section>
+            <article>
+                <img src="https://placeimg.com/640/480/animals" alt="animals" class="first">
+                <h3>Article 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloremque necessitatibus magnam ducimus vitae, sunt ex, explicabo labore! Maiores, a. Unde quam rem beatae, obcaecati molestias nobis repellat explicabo vero.</p>
+            </article>
+
+            <article>
+                <img src="https://placeimg.com/640/480/nature" alt="nature" class="second">
+                <h3>Article 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id dicta doloremque quaerat, quae laudantium sapiente obcaecati ipsum odio corporis sed laborum! Ipsa quaerat voluptate dolor vero aperiam illum ad, similique.</p>
+            </article>
+        </section>
+    </main>
+    <footer>This is my footer</footer>
+    <script>
+        //qsl på H1
+
+        const overskrift = document.querySelector("h1");
+        overskrift.textContent;
+        console.log(overskrift.textContent);
+        overskrift.textContent = "Sej titel";
+        console.log(overskrift.textContent);
+
+        const artikel1 = document.querySelector("article:nth-child(1) p");
+        artikel1.textContent = "Her finder du billeder af søde dyr"
+
+
+        const artikel2 = document.querySelector("article:nth-child(2) p");
+        artikel2.textContent = "Her finder du billeder af smuk natur"
+
+        const underubrik2 = document.querySelector("article:nth-child(2) h3");
+        underubrik2.textContent = "Her finder du billeder af smuk natur"
+
+
+        //qsl på h2
+        const underubrik = document.querySelector("h2");
+        underubrik.textContent;
+        console.log(underubrik.textContent);
+        underubrik.textContent = "Sej underubrik";
+        console.log(underubrik.textContent);
+
+        //qsl på h3
+        const mellemrubrik = document.querySelector("h3");
+        mellemrubrik.textContent;
+        console.log(mellemrubrik.textContent);
+        mellemrubrik.textContent = "Sej mellemrubrik";
+        console.log(mellemrubrik.textContent);
+
+    </script>
+</body>
+
+</html>
