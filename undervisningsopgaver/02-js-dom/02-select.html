@@ -46,7 +46,7 @@
 <body>
 
     <header>
-        Titel
+        <h1>Titel</h1>
     </header>
 
     <main>
@@ -68,19 +68,20 @@
     </main>
     <footer>This is my footer</footer>
     <script>
-        const titel = document.querySelector("header");
-        console.log(titel);
+        //qsl på H1
+        const overskrift = document.querySelector("h1");
+        overskrift.textContent;
+        console.log(overskrift.textContent);
 
-        //ændre teksten
-        titel.textContent = "Billedgalleri";
+        //qsl på h2
+        const underubrik = document.querySelector("h2");
+        underubrik.textContent;
+        console.log(underubrik.textContent);
 
-        //ændre teksten og titlen (altså gør det til h1)
-        titel.innerHTML = "<h1>Billedgalleri<h1>";
-
-        //ændre i din alt attribut. Vi ændre alt attribut på det første billede
-        const pic1 = document.querySelector("article:first-child img");
-        console.log(pic1);
-        pic1.alt = "billeder af søde dyr";
+        //qsl på h3
+        const mellemrubrik = document.querySelector("h3");
+        mellemrubrik.textContent;
+        console.log(mellemrubrik.textContent);
 
     </script>
 </body>
