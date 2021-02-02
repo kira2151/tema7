@@ -11,29 +11,28 @@
 <body>
 
     <p>Hvor gammel er du</p>
-    <input type="text" id="EgenAlder">
+    <input type="text" id="egenAlder">
     <p>Hvor gammel er din date?</p>
-    <input type="text" id="DateAlder">
+    <input type="text" id="dateAlder">
     <button>Klik for at se om du din date er for gammel eller for ung. Kig i konsollen</button>
 
     <script>
         document.querySelector("button").addEventListener("click", buttonClicked)
 
         function buttonClicked() {
-            let EgenAlder = document.querySelector("#EgenAlder").value;
-            let DateAlder = document.querySelector("#DateAlder").value;
-            let alderRegel = (EgenAlder / 2) + 7
+            let egenAlder = document.querySelector("#egenAlder").value;
+            let dateAlder = document.querySelector("#dateAlder").value;
+            let alderRegel = (egenAlder / 2) + 7
             let resultat;
-            let gammel = EgenAlder + alderRegel;
-            let ung = EgenAlder - alderRegel;
+            let gammel = egenAlder + alderRegel;
+            let ung = egenAlder - alderRegel;
 
-            if (EgenAlder < 15 || DateAlder < 15) {
+            if (egenAlder < 15 || dateAlder < 15) {
                 resultat = "Begge parter skal være over 15 år."
 
-            } else if (DateAlder > ung && DateAlder < gammel)
+            } else if (dateAlder > ung && dateAlder < gammel) {
                 resultat = "I må gerne gå på date"
-
-            else {
+            } else {
                 resultat = "Desværre, der er for mange år imellem jer"
             }
 
