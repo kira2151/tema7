@@ -76,6 +76,14 @@
             console.log("dom er loaded");
         }
 
+        //        //når der klikkes på et billede skal et nyt billede genereres.
+        // let img1 = document.querySelector("img").addEventListener("click", randomImage);
+        //
+        // function randomImage() {
+        // img1.src = "https://placeimg.com/400/300/arch?t=" + Math.random();
+        // console.log(randomImage);
+        // }
+
         //qsl på H1
         const overskrift = document.querySelector("h1");
         overskrift.textContent;
@@ -84,14 +92,14 @@
         console.log(overskrift.textContent);
 
         const artikel1 = document.querySelector("article:nth-child(1) p");
-        artikel1.textContent = "Her finder du billeder af søde dyr"
+        artikel1.textContent = "Her finder du billeder af smuk natur"
 
 
         const artikel2 = document.querySelector("article:nth-child(2) p");
-        artikel2.textContent = "Her finder du billeder af smuk natur"
+        artikel2.textContent = "Her finder du billeder af søde dyr"
 
         const underubrik2 = document.querySelector("article:nth-child(2) h3");
-        underubrik2.textContent = "Her finder du billeder af smuk natur"
+        underubrik2.textContent = "sej mellemrubrik"
 
 
         //qsl på h2
@@ -150,7 +158,6 @@
         pTekstElement.appendChild(pTekstSkrift);
         //tilføje teksten til din article
         newArticle.appendChild(pTekstElement);
-
 
 
         // tiføj artikel til section (appendChild = tilføje et ekstra barn til elementet)
