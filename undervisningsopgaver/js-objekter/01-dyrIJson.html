@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        article {
+            border: 1px solid black;
+            margin: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <section class="liste"></section>
+
+    <template>
+        <article id="dyret">
+            <h3></h3>
+            <img src="" alt="">
+            <p>Type: </p>
+            <p>Levested: </p>
+        </article>
+    </template>
+
+
+    <script>
+        const listeContainer = document.querySelector(".liste");
+        const dyrTemplate = document.querySelector("template");
+
+        //JSON
+
+
+        const fil = "alleDyr.json";
+
+        async function hentdata() {
+            const respons = await fetch(fil);
+            const json = await respons.json();
+            vis(json);
+        }
+
+        function vis(dyr) {
+
+            //løb dyrlisten igennem og insæt data i en template
+            dyr.forEach(etDyr => {
+                //placer et dyr i html
+                let klon = dyrTemplate.cloneNode(true).content;
+                klon.querySelector("h3").textContent = etDyr.navn;
+                klon.querySelector("img").src = etDyr.billede;
+                klon.querySelector("article:nth-child(1) p").textContent += etDyr.type;
+                klon.querySelector("p:last-of-type").textContent += etDyr.levested;
+                listeContainer.appendChild(klon);
+            });
+            hentdata();
+
+        }
+
+    </script>
+</body>
+
+</html>

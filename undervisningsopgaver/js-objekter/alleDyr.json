@@ -1,0 +1,26 @@
+[{
+        "navn": "Gurli gris",
+        "type": "pattedyr",
+        "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+        "levested": "lever på svinefarme"
+            },
+    {
+        "navn": "frø",
+        "type": "krybdyr",
+        "billede": "http://mabe-kea.dk/E19/pics/frog.png",
+        "levested": "lever i nærheden af vand"
+            },
+
+    {
+        "navn": "fox",
+        "type": "pattedyr",
+        "billede": "http://mabe-kea.dk/E19/pics/fox.png",
+        "levested": "lever i skoven"
+            },
+
+    {
+        "navn": "krokodille",
+        "type": "krybdyr",
+        "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg",
+        "levested": "lever i tropisk lavland eller saltvand"
+            }]

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+
+        @media screen and (min-width:768px) {
+            section {
+
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 55px;
+                width: 99vw;
+                margin: 0 auto;
+                max-width: 1395px;
+
+            }
+
+        }
+
+        @media screen and (min-width:900px) {
+            section {
+
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 55px;
+                width: 99vw;
+                margin: 0 auto;
+                max-width: 1395px;
+
+            }
+
+        }
+
+
+        /*
+        article {
+        margin: 5px;
+        }
+*/
+
+    </style>
+</head>
+
+<body>
+
+    <section class="liste"></section>
+
+    <template>
+        <article id="film">
+            <img src="" alt="">
+            <h3></h3>
+            <p></p>
+        </article>
+    </template>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", visAlleFilm);
+
+
+        let film = [{
+                "billede": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/W6dOqabNhHKBPXxxKKEZRA84-360.jpg",
+                "overubrik": "A Calling",
+                "tekst": "Christian Bengtson │ Danmark │ 20min │ 2019",
+            },
+            {
+                "billede": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/W6dOqabNhHKBPXxxKKEZRA84-360.jpg",
+                "overubrik": "A hole In My Heart",
+                "tekst": "Mees Peijnenburg │ Holland │ 9min │ 2015",
+            },
+
+            {
+                "billede": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/W6dOqabNhHKBPXxxKKEZRA84-360.jpg",
+                "overubrik": "A Place In The Sun - 110 year after the genocide",
+                "tekst": "Christian Zipfel │ Tyskland │ 20 min │ 2018",
+            },
+
+            {
+                "billede": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/W6dOqabNhHKBPXxxKKEZRA84-360.jpg",
+                "overubrik": "A Tower of Two",
+                "tekst": "Jacob Krzystof Glogowski │ Danmark │ 21 min │ 2019",
+            },
+            {
+                "billede": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/W6dOqabNhHKBPXxxKKEZRA84-360.jpg",
+                "overubrik": "A Worthy Man",
+                "tekst": "Kristian håskjold │ Danmark │ 10 min │ 2018",
+            }
+        ];
+
+        function visAlleFilm() {
+            console.log("dom er loaded");
+
+            const listeContainer = document.querySelector(".liste");
+            const filmTemplate = document.querySelector("template");
+            //løb filmlisten igennem og insæt data i en template
+            film.forEach(film => {
+                //placer dyr i html
+                let klon = filmTemplate.cloneNode(true).content;
+                klon.querySelector("img").src = film.billede;
+                klon.querySelector("h3").textContent = film.overubrik;
+                klon.querySelector("article:nth-child(1) p").textContent += film.tekst;
+                listeContainer.appendChild(klon);
+            })
+        }
+
+    </script>
+</body>
+
+</html>
