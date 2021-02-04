@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        main {
+            padding-left: 4%;
+            padding-right: 4%;
+        }
+
+        article {
+            border: 1px solid #333;
+            margin: 5px;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-gap: 20px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        header,
+        footer {
+            padding: 10px 0;
+            border: 1px solid #888;
+            text-align: center;
+        }
+
+        /* lav en box-shadow */
+        .the_shadow {
+            box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Titel</h1>
+    </header>
+
+    <main>
+
+        <h2>Undertitel</h2>
+        <section>
+            <article class="the_shadow">
+                <img src="https://placeimg.com/640/480/animals" alt="animals" class="first">
+                <h3>Article 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloremque necessitatibus magnam ducimus vitae, sunt ex, explicabo labore! Maiores, a. Unde quam rem beatae, obcaecati molestias nobis repellat explicabo vero.</p>
+            </article>
+
+            <article class="the_shadow">
+                <img src="https://placeimg.com/640/480/nature" alt="nature" class="second">
+                <h3>Article 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id dicta doloremque quaerat, quae laudantium sapiente obcaecati ipsum odio corporis sed laborum! Ipsa quaerat voluptate dolor vero aperiam illum ad, similique.</p>
+            </article>
+        </section>
+    </main>
+    <footer>This is my footer</footer>
+    <script>
+        //test om DOM'en er loadet.
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("dom er loaded");
+        }
+
+        //        //når der klikkes på et billede skal et nyt billede genereres.
+        // let img1 = document.querySelector("img").addEventListener("click", randomImage);
+        //
+        // function randomImage() {
+        // img1.src = "https://placeimg.com/400/300/arch?t=" + Math.random();
+        // console.log(randomImage);
+        // }
+
+        //qsl på H1
+        const overskrift = document.querySelector("h1");
+        overskrift.textContent;
+        console.log(overskrift.textContent);
+        overskrift.textContent = "Sej titel";
+        console.log(overskrift.textContent);
+
+        const artikel1 = document.querySelector("article:nth-child(1) p");
+        artikel1.textContent = "Her finder du billeder af smuk natur"
+
+
+        const artikel2 = document.querySelector("article:nth-child(2) p");
+        artikel2.textContent = "Her finder du billeder af søde dyr"
+
+        const underubrik2 = document.querySelector("article:nth-child(2) h3");
+        underubrik2.textContent = "sej mellemrubrik"
+
+
+        //qsl på h2
+        const underubrik = document.querySelector("h2");
+        underubrik.textContent;
+        console.log(underubrik.textContent);
+        underubrik.textContent = "Sej underubrik";
+        console.log(underubrik.textContent);
+
+        //qsl på h3
+        const mellemrubrik = document.querySelector("h3");
+        mellemrubrik.textContent;
+        console.log(mellemrubrik.textContent);
+        mellemrubrik.textContent = "Sej mellemrubrik";
+        console.log(mellemrubrik.textContent);
+
+        //******* ændring af billeder *******
+
+        const pic1 = document.querySelector("article:nth-child(1) img");
+        console.log(pic1)
+        pic1.src = "https://placeimg.com/640/480/nature";
+        pic1.alt = "Her finder du billeder af smuk natur";
+
+        const pic2 = document.querySelector("article:nth-child(2) img");
+        console.log(pic2)
+        pic2.src = "https://placeimg.com/640/480/animals";
+        pic2.alt = "Her finder du billeder af søde dyr";
+
+        // ******* lav en ekstra artikel*******
+
+        // lav en section så du kan lægge article ind i den.
+        let mainSection = document.querySelector("section");
+        //lav nyt article elemet
+        let newArticle = document.createElement("article");
+        // tilføj shaow box som du har lavet i css
+        newArticle.classList.add("the_shadow");
+
+
+        //lav et billede element
+        let billede = document.createElement("img");
+        billede.src = "https://placeimg.com/640/480/nature";
+        newArticle.appendChild(billede);
+
+        //lav et nyt h3 element
+        let overskrift2 = document.createElement("h3");
+        //lav ny tekst til overskriften (h3)
+        let overskriftText = document.createTextNode("Article 3");
+        //indsæt tekst til overskriften
+        overskrift2.appendChild(overskriftText);
+        //tilføje overskriften til din article
+        newArticle.appendChild(overskrift2);
+
+        //lav et nyt p element
+        let pTekstElement = document.createElement("p");
+        //lav ny tekst til teksten (p)
+        let pTekstSkrift = document.createTextNode("her er noget tekst");
+        //indsæt tekst til p element
+        pTekstElement.appendChild(pTekstSkrift);
+        //tilføje teksten til din article
+        newArticle.appendChild(pTekstElement);
+
+
+        // tiføj artikel til section (appendChild = tilføje et ekstra barn til elementet)
+        mainSection.appendChild(newArticle);
+
+        //lav eventlisterne og toggle mellem shadow box og ingen shadow box
+        document.querySelector("article:nth-child(1)").addEventListener("mouseover", elementOverAndOut);
+        document.querySelector("article:nth-child(1)").addEventListener("mouseout", elementOverAndOut);
+        document.querySelector("article:nth-child(2)").addEventListener("mouseover", elementOverAndOut);
+        document.querySelector("article:nth-child(2)").addEventListener("mouseout", elementOverAndOut);
+        document.querySelector("article:nth-child(3)").addEventListener("mouseover", elementOverAndOut);
+        document.querySelector("article:nth-child(3)").addEventListener("mouseout", elementOverAndOut);
+
+        function elementOverAndOut() {
+            console.log("OVER AND OUT this er:", this);
+            this.classList.toggle("the_shadow");
+        }
+
+    </script>
+</body>
+
+</html>
