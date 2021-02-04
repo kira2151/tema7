@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <article id="dyr">
+        <p></p>
+        <img src="" alt="">
+    </article>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("dom er loaded");
+        }
+        let dyr = [{
+                "navn": "Gurli gris",
+                "type": "pattedyr",
+                "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+                "levested": "svinefarme"
+            },
+            {
+                "navn": "frog",
+                "type": "krybdyr",
+                "billede": "http://mabe-kea.dk/E19/pics/frog.png",
+                "levested": "i nærheden af vand"
+            },
+
+            {
+                "navn": "fox",
+                "type": "pattedyr",
+                "billede": "http://mabe-kea.dk/E19/pics/fox.png",
+                "levested": "skoven"
+            },
+
+            {
+                "navn": "krokodille",
+                "type": "krybdyr",
+                "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg",
+                "levested": "tropisk lavland eller saltvand",
+            }
+
+        ];
+
+        console.log(dyr)
+
+        //        const destination = document.querySelector("#dyr");
+        //        const tekstOmGris = `Navn: ${dyr.navn}, Type: ${dyr.type}, Levested: ${dyr.levested}`;
+        //
+        //        destination.querySelector("p").textContent = tekstOmGris;
+        //        destination.querySelector("img").src = dyr.billede;
+
+    </script>
+</body>
+
+</html>
