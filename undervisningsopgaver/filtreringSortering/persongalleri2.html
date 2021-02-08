@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>Persongalleri</title>
+    <style>
+        * {
+
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+
+        img {
+            max-width: 100%;
+        }
+
+        article {
+            border: 2px solid black;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+
+        }
+
+
+        main {
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 5px;
+            width: 90vw;
+            max-width: 1280px;
+            margin: 0 auto;
+
+        }
+
+        p {
+            margin-top: 5px;
+            margin: 4px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <section id="liste"></section>
+
+    <template>
+        <article class="person">
+            <h2 class="navn"></h2>
+            <p class="køn"></p>
+            <img src="" alt="" class="profil-billede">
+        </article>
+    </template>
+
+    <script>
+        const header = document.querySelector("header h1");
+        //BILLEDE URL / BILLEDE ENDPOINT
+        const medieurl = "https://persongalleri-5d3e.restdb.io/media/";
+        //API NØGLE
+        const myHeaders = {
+            "x-apikey": "600fe9211346a1524ff12e31"
+        }
+        //link til personendpoint
+        const url = "https://persongalleri-5d3e.restdb.io/rest/persongalleri";
+
+
+
+        document.addEventListener("DOMContentLoaded", start)
+        let personer;
+        let filter = "ja";
+        //første funktion der kaldes efter dom er loaded
+        function start() {
+            loadJSON();
+        }
+
+        async function loadJSON() {
+            const respons = await fetch(url, {
+                headers: myHeaders;
+            });
+            personer = await JSONData.json();
+            console.log("Personer", personer);
+            visPersoner();
+        }
+
+        //funktioner der viser personer i liste view
+        function visPersoner() {
+
+            const main = document.querySelector("#Liste"); //container til articles med en person
+            const template = document.querySelector("template").content; //select indhold af html skabelon (article)
+            personer.forEach(person => {
+                //loop igennem json (personer)
+                if (filter == person.troende) {
+                    const klon = skabelon.cloneNode(true);
+                    klon.querySelector(".navn").textContent = person.fornavn + " " + person.efternavn;
+                    klon.querySelector("profil.billede").src = medieurl + person.billede;
+                    dest.appendChild(klon);
+                }
+            })
+
+
+        }
+
+        //        function vis(json) {
+        // console.log(json)
+        // json.forEach(person => {
+        // const klon = template.cloneNode(true);
+        // klon.querySelector(".billede").src = medieurl + person.billede[0];
+        // klon.querySelector(".fornavn").textContent = person.fornavn + " " + person.efternavn;
+        // klon.querySelector(".titel").textContent = "Titel: " + person.titel;
+        // klon.querySelector(".fødselsdag").textContent = "Fødselsdato: " + person.fødselsdag;
+        // klon.querySelector(".hobby").textContent = "Hobby: " + person.hobby;
+        // klon.querySelector(".troende").textContent = "Tro: " + person.troende;
+        //
+        // // fiks datoen
+        // const str = person.fødselsdag;
+        // const patt = /[0-9][0-9][0-9][0-9][-][0-9][0-9][-][0-9][0-9]/;
+        // const result = str.match(patt);
+        // klon.querySelector(".fødselsdag").textContent = "Fødselsdato: " + result;
+        // main.appendChild(klon);
+        //
+        // })
+        // }
+
+        hendtData();
+
+    </script>
+
+
+</body>
+
+</html>

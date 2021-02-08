@@ -75,9 +75,12 @@
             }
         };
 
+        let personer;
+        let filter = "ja";
+
         async function hendtData() {
             const respons = await fetch(url, options);
-            const json = await respons.json();
+            personer= await JSONDATA.json();
             vis(json);
         }
 
