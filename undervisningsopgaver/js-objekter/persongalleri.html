@@ -97,10 +97,10 @@
                 klon.querySelector(".troende").textContent = "Tro:  " + person.troende;
 
                 // fiks datoen
-                const str = person.fødselsdag;
-                const patt = /[0-9][0-9][0-9][0-9][-][0-9][0-9][-][0-9][0-9]/;
-                const result = str.match(patt);
-                klon.querySelector(".fødselsdag").textContent = "Fødselsdato: " + result;
+                const str = person.fødselsdag; // f.eks. 2011-06-07T00:00:00.000Z
+                const patt = /[0-9][0-9][0-9][0-9][-][0-9][0-9][-][0-9][0-9]/; //følger xxxx-xx-xx
+                const result = str.match(patt);  // find den del af string der matcher mønster (pattern)
+                klon.querySelector(".fødselsdag").textContent = "Fødselsdato: " + result; // indsæt teksten i klonen
                 main.appendChild(klon);
 
             })
